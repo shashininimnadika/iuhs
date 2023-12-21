@@ -1,0 +1,99 @@
+<html>
+<head>
+<title> OrderMyFood </title>
+<style>
+h1{
+    color:blue;
+}
+
+fieldset{
+     background-color:grey;
+}
+
+button{
+     color:white;
+      background-color:blue;
+      border:10px white;
+      border-radius:5px;
+      padding:20px 30px;
+      cursor:pointer;
+}
+
+#button:hover{
+      background-color:red;
+}
+
+
+</style>
+<script>
+function calculateBill(){
+console.log("hi");
+var name= document.getElementById("Name").value;
+var qty =paeseIntdocument.getElementById("quantity").value;
+var food= document.getElementById("food").value;
+var vegi= document.getElementById("vegi").checked;
+var nonvegi= document.getElementById("nonvegi").checked;
+var price=0;
+var foodtype;
+
+switch(food){
+    case"burger" :
+      price = qty*1000;
+      break;
+    case"pasta" :
+     price = qty*1500;
+      break;
+    case"pizza" :
+     price = qty*2000;
+      break;
+}
+if(nonvegi){
+foodType="non-vagitarion";
+price=price+500*qty;
+
+}
+else{
+foodType="vegitarian";
+}
+alert("Dear"+name+,Total payment is:Rs."+price+"("+qty+vegi+food+")");
+}
+</script>
+</head>
+<body>
+<form> 
+<fieldset style= "width=60%">
+<h1> Order My Food </h1>
+<h4> Online Food Order From </h4>
+<lable>Name</lable> 
+<input type = "text" id = "Name" name="Name" required > </input><br/>
+<br>
+<lable>Email</lable>
+<input type = "email" id="email" Email="email"><br/>
+<br/>
+<lable= "food">Food <lable>
+<select name="food" id="food" >
+<option value="burger"> Burger </option>
+<option value="pasta"> Pasta </option>
+<option value="pizza"> Pizza </option>
+</select>
+<br/>
+<lable= "foodType"> Food Type: </lable>
+
+<input type= "radio" id="vegi" name="foodType" value="vegi"> Vegitarian </input>
+<input type="radio" id="nonvegi" name="foodType" value="nonvegi"> non-Vegitarian </input>
+<br/>
+<lable="quantity"> Quantity: </lable>
+<input type="text" id="quantity" name="quantity" required </input>
+<br/>
+<lable="comment"> Additional Comments: </lable><br/>
+<textarea id="comment" name="comment" rows="4"> </textarea>
+<br/>
+<br/>
+
+<button type = "submit" onclick="calculateBill()"> submit </button>
+
+
+</fieldset>
+</form>
+</body>
+</html>
